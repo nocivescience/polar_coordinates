@@ -1,6 +1,7 @@
 *.aux
-*.div
+*.dvi
 *.log
 *.svg
 *.tex
 *.mp4
+*.txt

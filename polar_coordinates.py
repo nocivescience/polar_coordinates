@@ -19,12 +19,20 @@ class PolarCoordinatesScene(MovingCameraScene):
         point=plane.c2p(x,y)
         x_line=Line(point,xp)
         y_line=Line(point,yp)
-        #get_coord_label
-        
-        x_brace=Brace()
         dot=Dot(point,color=self.CONFIG['x_color'])
+        #get_coord_label
+        coord_label=self.get_coord_label(x,y,self.CONFIG['x_color'],self.CONFIG['y_color'])
+        coord_label.next_to(dot,UR,buff=SMALL_BUFF)
+        x_brace=Brace(x_line,UP)
+        y_brace=Brace(y_line,RIGHT)
         plane.add_coordinates()
-        for mob in [plane,dot,x_line,y_line]:
+        for mob in [
+            plane,dot,
+            x_line,
+            y_line,
+            x_brace,
+            y_brace
+        ]:
             self.play(Create(mob))
         self.wait()
     def get_coord_label(self,x=0,y=0,x_color=WHITE,y_color=WHITE,include_background_rectangle=True,**decimal_kwargs):
