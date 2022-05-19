@@ -1,5 +1,5 @@
 *.aux
-*.div
+*.dvi
 *.log
 *.svg
 *.tex

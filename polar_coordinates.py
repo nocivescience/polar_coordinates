@@ -19,8 +19,6 @@ class PolarCoordinatesScene(MovingCameraScene):
         point=plane.c2p(x,y)
         x_line=Line(point,xp)
         y_line=Line(point,yp)
-        #get_coord_label
-        
         x_brace=Brace()
         dot=Dot(point,color=self.CONFIG['x_color'])
         plane.add_coordinates()
@@ -54,3 +52,22 @@ class PolarCoordinatesScene(MovingCameraScene):
         if include_background_rectangle:
             coord_label.add_background_rectangle()
         return coord_label
+    def show_polar_coordinates(self,dot,plane):
+        origin=plane.c2p(0,0)
+        r_line=Line(origin,dot.get_center())
+        r_line.set_color(self.CONFIG['r_color'])
+        r_value=r_line.get_length()
+        theta_value=r_line.get_angle()
+        coord_label=self.get_coord_label(r_value,theta_value,self.CONFIG['r_color'],self.CONFIG['theta_color'])
+        r_coord=coord_label.x_coord
+        theta_coord=coord_label.y_coord
+        coord_label.add_updater(lambda m: m.next_to(dot,RIGHT,buff=0))
+        r_coord.add_updater(lambda m: m.set_value(r_line.get_length()))
+        theta_value.add_updater(lambda m: m.set_value(r_line.get_angle()))
+        self.play(Create(coord_label))
+    def transition_to_polar_coord(self):
+        pass
+    def get_polar_grid(self,plane,radius=0.25):
+        axes=VGroup(
+            
+        )
