@@ -1,7 +1,2 @@
-*.aux
-*.dvi
-*.log
-*.svg
-*.tex
-*.mp4
-*.txt
+media
+__pycache__
