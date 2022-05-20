@@ -94,4 +94,4 @@ class PolarCoordinatesScene(MovingCameraScene):
         set_coord.add_updater(lambda m: m.next_to(dot,UP,buff=SMALL_BUFF))
         radius=Line(origin,dot.get_center())
         arco=Angle(Line(origin,RIGHT),radius,radius=1,color=WHITE)
-        return [set_coord,radius,arco]
+        return [set_coord,radius,arco] 
