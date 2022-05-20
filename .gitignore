@@ -1,6 +1,8 @@
+media
 *.aux
 *.dvi
 *.log
 *.svg
 *.tex
 *.mp4
+practica.py
